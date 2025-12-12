@@ -14,6 +14,7 @@ import TableOfContents from "@/components/about/TableOfContents";
 import { ScrollReveal, SkillBox, Timeline, IntroSection, WhatIDoCard } from "@/components";
 import styles from "@/components/about/about.module.scss";
 import React from "react";
+import Image from "next/image";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -138,7 +139,31 @@ export default function About() {
             horizontal="center"
             style={{ width: "100%" }}
           >
-            <Avatar src={person.avatar} size="xl" />
+            <div
+              style={{
+                background: "white",
+                borderRadius: "50%",
+                padding: "4px",
+                display: "inline-block",
+                boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
+                position: "relative",
+                width: "168px",
+                height: "168px",
+              }}
+            >
+              <Image
+                src={person.avatar}
+                alt={person.name}
+                width={160}
+                height={160}
+                className={styles.professionalAvatar}
+                style={{
+                  objectFit: "cover",
+                  objectPosition: "center top",
+                  borderRadius: "50%",
+                }}
+              />
+            </div>
             {person.languages && person.languages.length > 0 && (
               <Row wrap gap="8">
                 {person.languages.map((language, index) => (

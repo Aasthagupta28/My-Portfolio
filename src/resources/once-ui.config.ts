@@ -193,7 +193,9 @@ const schema: SchemaConfig = {
 
 // social links
 const sameAs: SameAsConfig = {
+  threads: "",
   linkedin: "https://www.linkedin.com/in/aastha-gupta-a42037218",
+  discord: "",
 };
 
 // social sharing configuration for blog posts
