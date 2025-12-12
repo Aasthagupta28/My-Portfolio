@@ -1,0 +1,182 @@
+.introSection {
+  position: relative;
+  width: 100%;
+  min-height: 300px;
+  padding: 3rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 24px;
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.introSection.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.backgroundGradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(20, 184, 166, 0.05) 100%);
+  border-radius: 24px;
+  z-index: 0;
+}
+
+.particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 24px;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(99, 102, 241, 0.4);
+  border-radius: 50%;
+  animation: float 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(-100px) translateX(20px);
+    opacity: 1;
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  width: 100%;
+}
+
+.greeting {
+  margin-bottom: 1rem;
+  opacity: 0;
+  animation: fadeInDown 0.8s ease 0.2s forwards;
+}
+
+.greetingText {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.nameHighlight {
+  color: #6366f1;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+}
+
+.name {
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease 0.4s forwards;
+  font-size: 3rem;
+  line-height: 1.2;
+}
+
+.role {
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease 0.6s forwards;
+  font-size: 1.25rem;
+}
+
+.divider {
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #6366f1, transparent);
+  margin: 2rem auto;
+  opacity: 0;
+  animation: fadeInScale 0.8s ease 0.8s forwards;
+}
+
+.socialRow {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease 1s forwards;
+}
+
+.socialButton {
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .introSection {
+    padding: 2rem 1rem;
+    min-height: 250px;
+  }
+
+  .name {
+    font-size: 2rem;
+  }
+
+  .role {
+    font-size: 1rem;
+  }
+
+  .greetingText {
+    font-size: 1rem;
+  }
+}
+

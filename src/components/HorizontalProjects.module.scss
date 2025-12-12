@@ -1,0 +1,394 @@
+.projectsSection {
+  padding: 6rem 2rem;
+  background: #0a0a0a;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.title {
+  font-size: 3rem;
+  background: linear-gradient(135deg, #ffffff 0%, #6366f1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.projectContainer {
+  position: relative;
+  overflow: hidden;
+}
+
+.projectCard {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.projectSlide {
+  min-width: 100%;
+  padding: 2rem 0;
+}
+
+.projectContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  background: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 24px;
+  padding: 3rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: rgba(99, 102, 241, 0.4);
+    box-shadow: 0 20px 60px rgba(99, 102, 241, 0.2);
+  }
+}
+
+.leftSide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.projectImage {
+  width: 100%;
+  height: 400px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.imagePlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(20, 184, 166, 0.1) 100%);
+}
+
+.codePreview {
+  padding: 2rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.codeLine {
+  margin-bottom: 0.5rem;
+}
+
+.comment {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.keyword {
+  color: #c792ea;
+}
+
+.variable {
+  color: #82aaff;
+}
+
+.property {
+  color: #7fdbca;
+}
+
+.string {
+  color: #c3e88d;
+}
+
+.rightSide {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.projectNumber {
+  font-size: 1rem;
+  color: rgba(99, 102, 241, 0.6);
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.projectTitle {
+  font-size: 2.5rem;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.projectDescription {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+.features {
+  margin-top: 1rem;
+}
+
+.featuresTitle {
+  color: #6366f1;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.featuresList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: rgba(255, 255, 255, 0.7);
+
+    &::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: #6366f1;
+    }
+  }
+}
+
+.techStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.techTag {
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  color: #6366f1;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(99, 102, 241, 0.2);
+    transform: translateY(-2px);
+  }
+}
+
+.projectButtons {
+  margin-top: 1rem;
+}
+
+.projectButton {
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+  }
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.navButton {
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  color: #6366f1;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(99, 102, 241, 0.2);
+    transform: scale(1.1);
+  }
+}
+
+.dots {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(99, 102, 241, 0.3);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &.active {
+    background: #6366f1;
+    width: 32px;
+    border-radius: 6px;
+  }
+
+  &:hover {
+    background: rgba(99, 102, 241, 0.5);
+  }
+}
+
+@media (max-width: 1024px) {
+  .projectContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .projectImage {
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .projectsSection {
+    padding: 3rem 1rem;
+  }
+
+  .container {
+    padding: 0 0.5rem;
+  }
+
+  .header {
+    margin-bottom: 2rem;
+  }
+
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .projectContent {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .projectImage {
+    height: 250px;
+  }
+
+  .codePreview {
+    padding: 1rem;
+    font-size: 0.75rem;
+  }
+
+  .projectTitle {
+    font-size: 1.5rem;
+  }
+
+  .projectDescription {
+    font-size: 0.95rem;
+  }
+
+  .projectNumber {
+    font-size: 0.875rem;
+  }
+
+  .featuresList {
+    li {
+      font-size: 0.875rem;
+      padding-left: 1rem;
+    }
+  }
+
+  .techStack {
+    gap: 0.5rem;
+  }
+
+  .techTag {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .navigation {
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .navButton {
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+  }
+
+  .dots {
+    gap: 0.5rem;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+
+    &.active {
+      width: 24px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .projectsSection {
+    padding: 2rem 0.5rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .projectContent {
+    padding: 1rem;
+  }
+
+  .projectTitle {
+    font-size: 1.25rem;
+  }
+
+  .projectImage {
+    height: 200px;
+  }
+}
+

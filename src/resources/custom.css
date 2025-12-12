@@ -1,0 +1,276 @@
+/* Front-end Developer Portfolio Custom Styles */
+
+/* Professional Developer Theme Colors */
+:root {
+  --primary-color: #6366f1;
+  --secondary-color: #14b8a6;
+  --background-dark: #0a0a0a;
+  --background-darker: #1a1a1a;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+}
+
+/* Smooth scrolling and animations */
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background-dark);
+  color: var(--text-primary);
+}
+
+/* Code-inspired gradient effects */
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Glowing effect for interactive elements */
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(111, 148, 241, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(111, 148, 241, 0.6), 0 0 30px rgba(111, 148, 241, 0.4);
+  }
+}
+
+/* Floating animation for hero elements */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Pulse animation for badges and highlights */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Enhanced button hover effects */
+[data-border="rounded"]:hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(-2px);
+}
+
+/* Code block styling enhancements */
+code {
+  font-family: var(--font-code);
+  background: rgba(111, 148, 241, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* Project card hover effects */
+[class*="ProjectCard"]:hover {
+  transform: translateY(-4px);
+  transition: transform 0.3s ease;
+}
+
+/* Smooth fade-in for content */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enhanced focus states for accessibility */
+*:focus-visible {
+  outline: 2px solid rgba(111, 148, 241, 0.6);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(111, 148, 241, 0.3);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(111, 148, 241, 0.5);
+}
+
+/* Text selection styling */
+::selection {
+  background: rgba(111, 148, 241, 0.3);
+  color: inherit;
+}
+
+/* Enhanced link hover effects */
+a:hover {
+  transition: color 0.2s ease;
+}
+
+/* Responsive typography enhancements */
+@media (max-width: 768px) {
+  * {
+    -webkit-tap-highlight-color: rgba(111, 148, 241, 0.2);
+  }
+}
+
+/* Mobile Responsive Improvements */
+@media (max-width: 768px) {
+  .what-i-do-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  .what-i-do-grid > div > div {
+    padding: 1.5rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .what-i-do-grid > div > div {
+    padding: 1rem !important;
+  }
+}
+
+/* Ensure all sections are properly responsive */
+@media (max-width: 768px) {
+  section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  h1, h2, h3 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+}
+
+/* Fix text overflow on mobile */
+@media (max-width: 480px) {
+  * {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  p, span, div {
+    max-width: 100%;
+  }
+}
+
+/* Global mobile improvements */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.35rem;
+  }
+
+  h3 {
+    font-size: 1.15rem;
+  }
+}
+
+/* Page transition effects */
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth page transitions */
+body {
+  animation: pageFadeIn 0.6s ease-out;
+}
+
+/* Enhanced scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Loading animation */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+/* Curtain effect for sections */
+.curtain-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.curtain-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--scheme-page-background);
+  z-index: 10;
+  animation: curtainOpen 1s ease-out forwards;
+}
+
+@keyframes curtainOpen {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}

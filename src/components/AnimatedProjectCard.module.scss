@@ -1,0 +1,205 @@
+@use "./breakpoints.scss" as breakpoints;
+
+.projectCard {
+  position: relative;
+  width: 100%;
+  min-height: 300px;
+  background: var(--scheme-page-background);
+  border: 1px solid var(--scheme-neutral-alpha-weak);
+  border-radius: 24px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  margin-bottom: 2rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      var(--scheme-brand-alpha-weak) 0%,
+      transparent 100%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &.hovered {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(111, 148, 241, 0.2),
+      0 0 0 1px var(--scheme-brand-alpha-medium);
+  }
+}
+
+.curtain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.curtainLeft,
+.curtainRight {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: var(--scheme-brand-background-strong);
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.curtainLeft {
+  left: 0;
+  transform: translateX(-100%);
+}
+
+.curtainRight {
+  right: 0;
+  transform: translateX(100%);
+}
+
+.projectCard.visible .curtainLeft {
+  transform: translateX(-100%);
+  animation: curtainOpenLeft 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.projectCard.visible .curtainRight {
+  transform: translateX(100%);
+  animation: curtainOpenRight 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.projectCard.hovered .curtainLeft {
+  animation: curtainCloseLeft 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.projectCard.hovered .curtainRight {
+  animation: curtainCloseRight 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes curtainOpenLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes curtainOpenRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes curtainCloseLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes curtainCloseRight {
+  0% {
+    transform: translateX(100%);
+  }
+  50% {
+    transform: translateX(50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+}
+
+.glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(
+    circle,
+    var(--scheme-brand-alpha-strong) 0%,
+    transparent 70%
+  );
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.projectCard.hovered .glow {
+  opacity: 0.3;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.5;
+  }
+}
+
+@media (max-width: breakpoints.$s) {
+  .projectCard {
+    min-height: 250px;
+    margin-bottom: 1.5rem;
+    border-radius: 16px;
+  }
+
+  .content {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .projectCard {
+    min-height: 200px;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .content {
+    padding: 1rem;
+  }
+}
+

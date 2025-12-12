@@ -1,0 +1,27 @@
+.scrollReveal {
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.up {
+    transform: translateY(50px);
+  }
+
+  &.down {
+    transform: translateY(-50px);
+  }
+
+  &.left {
+    transform: translateX(50px);
+  }
+
+  &.right {
+    transform: translateX(-50px);
+  }
+
+  &.visible {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+
