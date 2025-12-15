@@ -33,7 +33,7 @@ export const ContactSection = () => {
   }, []);
 
   const email = person.email;
-  const phone = "8629072539";
+  const phone = "8219469104";
   const location = "VPO Sajaopiplu Distt Mandi HP, India";
 
   return (

@@ -96,7 +96,16 @@ export default function About() {
   ];
 
   return (
-    <Column maxWidth="m">
+    <Column 
+      maxWidth="m"
+      style={{ 
+        maxWidth: "100%",
+        width: "100%",
+        overflowX: "hidden",
+        paddingLeft: "1rem",
+        paddingRight: "1rem"
+      }}
+    >
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -113,7 +122,12 @@ export default function About() {
       {about.tableOfContent?.display && (
         <Column
           left="0"
-          style={{ top: "50%", transform: "translateY(-50%)" }}
+          style={{ 
+            top: "50%", 
+            transform: "translateY(-50%)",
+            maxWidth: "200px",
+            overflow: "hidden"
+          }}
           position="fixed"
           paddingLeft="24"
           gap="32"
@@ -122,7 +136,16 @@ export default function About() {
           <TableOfContents structure={structure} about={about} />
         </Column>
       )}
-      <Row fillWidth s={{ direction: "column" }} horizontal="center">
+      <Row 
+        fillWidth 
+        s={{ direction: "column" }} 
+        horizontal="center"
+        style={{ 
+          maxWidth: "100%",
+          width: "100%",
+          overflowX: "hidden"
+        }}
+      >
         {about.avatar?.display && (
           <Column
             className={styles.avatar}
@@ -162,6 +185,8 @@ export default function About() {
                   objectPosition: "center top",
                   borderRadius: "50%",
                 }}
+                priority
+                loading="eager"
               />
             </div>
             {person.languages && person.languages.length > 0 && (
@@ -189,8 +214,7 @@ export default function About() {
                   <ScrollReveal delay={200} direction="up">
                     <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl">
                       <Text variant="body-default-l" onBackground="neutral-weak">
-                        Hi, I'm Aastha — a Frontend Developer passionate about building scalable UI systems, 
-                        real-time dashboards, and seamless user experiences.
+                        I am a Frontend Developer with over 3 years of professional experience building responsive, user-centric web applications. I have worked with organizations and delivered multiple real-world projects, gaining strong expertise in modern frontend technologies and UI development. My focus is on creating scalable interfaces, optimizing performance, and writing clean, maintainable code. I value usability and attention to detail, and I enjoy translating complex requirements into intuitive, high-quality digital experiences.
                       </Text>
                     </Column>
                   </ScrollReveal>
@@ -260,18 +284,18 @@ export default function About() {
                 </Column>
               ),
               about.technical?.display && about.technical?.skills && about.technical.skills.length > 0 && (
-                <Column key="technical-section" fillWidth gap="l" marginBottom="40">
+                <Column key="technical-section" fillWidth gap="m" marginBottom="40">
                   <ScrollReveal delay={100} direction="up">
                     <Heading
                       as="h2"
                       id={about.technical.title}
                       variant="display-strong-s"
-                      marginBottom="40"
+                      marginBottom="m"
                     >
                       {about.technical.title}
                     </Heading>
                   </ScrollReveal>
-                  <Column fillWidth gap="l">
+                  <Column fillWidth gap="m">
                     {about.technical.skills.map((skill, index) => (
                       <SkillBox
                         key={`skill-${skill.title}-${index}`}

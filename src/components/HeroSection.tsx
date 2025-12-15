@@ -92,7 +92,7 @@ export const HeroSection = () => {
       <div className={styles.heroContent}>
         <div className={styles.leftSide}>
           <div className={styles.greeting}>
-            <Text variant="body-default-l" onBackground="neutral-weak">
+            <Text variant="heading-strong-xl" className={styles.greetingText}>
               Hi, I'm <span className={styles.nameHighlight}>Aastha</span>
             </Text>
           </div>

@@ -5,7 +5,14 @@ import {
   Meta,
 } from "@once-ui-system/core";
 import { home, about, person, baseURL } from "@/resources";
-import { HeroSection, SkillsSection, HorizontalProjectsWrapper, ContactSection } from "@/components";
+import { 
+  HeroSection, 
+  SkillsSection, 
+  HorizontalProjectsWrapper, 
+  ContactSection,
+  StatsSection,
+  ProcessSection
+} from "@/components";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -34,8 +41,10 @@ export default function Home() {
         }}
       />
       <HeroSection />
+      <StatsSection />
       <SkillsSection />
       <HorizontalProjectsWrapper />
+      <ProcessSection />
       <ContactSection />
     </>
   );

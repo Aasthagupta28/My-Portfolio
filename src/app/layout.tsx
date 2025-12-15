@@ -108,7 +108,12 @@ export default async function RootLayout({
           as="body"
           background="page"
           fillWidth
-          style={{ minHeight: "100vh" }}
+          style={{ 
+            minHeight: "100vh",
+            overflowX: "hidden",
+            maxWidth: "100vw",
+            width: "100%"
+          }}
           margin="0"
           padding="0"
           horizontal="center"
@@ -157,8 +162,28 @@ export default async function RootLayout({
           </RevealFx>
           <Flex fillWidth minHeight="16" s={{ hide: true }} />
           <Header />
-          <Flex zIndex={0} fillWidth padding="l" horizontal="center" flex={1}>
-            <Flex horizontal="center" fillWidth minHeight="0">
+          <Flex 
+            zIndex={0} 
+            fillWidth 
+            padding="l" 
+            horizontal="center" 
+            flex={1}
+            style={{ 
+              maxWidth: "100vw", 
+              overflowX: "hidden",
+              width: "100%"
+            }}
+          >
+            <Flex 
+              horizontal="center" 
+              fillWidth 
+              minHeight="0"
+              style={{ 
+                maxWidth: "100%", 
+                overflowX: "hidden",
+                width: "100%"
+              }}
+            >
               <RouteGuard>
                 <PageTransition>{children}</PageTransition>
               </RouteGuard>

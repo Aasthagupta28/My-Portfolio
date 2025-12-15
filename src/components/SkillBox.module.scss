@@ -1,6 +1,6 @@
 .skillBox {
   position: relative;
-  padding: 2rem;
+  padding: 1.25rem;
   background: var(--scheme-page-background);
   border: 2px solid var(--scheme-neutral-alpha-weak);
   border-radius: 20px;
@@ -31,7 +31,7 @@
 .title {
   font-size: 1.5rem;
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   color: var(--scheme-neutral-on-background-strong);
   background: linear-gradient(
     135deg,
@@ -44,7 +44,7 @@
 }
 
 .description {
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.75rem;
   color: var(--scheme-neutral-on-background-weak);
   line-height: 1.6;
 }

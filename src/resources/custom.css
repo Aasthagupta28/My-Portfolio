@@ -15,9 +15,24 @@
   scroll-behavior: smooth;
 }
 
+html {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
 body {
   background: var(--background-dark);
   color: var(--text-primary);
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 /* Code-inspired gradient effects */
@@ -167,6 +182,60 @@ a:hover {
   }
 }
 
+/* Prevent horizontal overflow at all zoom levels */
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+  width: 100% !important;
+  position: relative;
+}
+
+/* Ensure all containers respect viewport width */
+[class*="Column"],
+[class*="Row"],
+[class*="Flex"] {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Prevent common elements from causing horizontal overflow */
+div, section, article, main, header, footer, aside, nav {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive fixes for high zoom levels (110%, 120%, etc.) */
+@media (min-width: 100vw) {
+  body {
+    overflow-x: hidden;
+  }
+  
+  * {
+    max-width: 100%;
+  }
+}
+
+/* Additional responsive container fixes */
+.container,
+[class*="container"],
+[class*="Container"] {
+  max-width: 100%;
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  box-sizing: border-box;
+}
+
+/* Fix for fixed positioned elements */
+[style*="position: fixed"] {
+  max-width: calc(100vw - 2rem);
+}
+
 /* Fix text overflow on mobile */
 @media (max-width: 480px) {
   * {
@@ -233,9 +302,70 @@ body {
   animation: pageFadeIn 0.6s ease-out;
 }
 
+/* Smooth link transitions */
+a {
+  text-decoration: none;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+/* Smooth button interactions */
+button, [role="button"] {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:active, [role="button"]:active {
+  transform: scale(0.98);
+}
+
+/* Optimize animations for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 /* Enhanced scroll behavior */
 html {
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth transitions for all interactive elements */
+a, button, [role="button"] {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Prevent layout shift */
+img, video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Optimize rendering */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Smooth focus transitions */
+*:focus {
+  outline: none;
+  transition: outline 0.2s ease;
+}
+
+*:focus-visible {
+  outline: 2px solid rgba(111, 148, 241, 0.6);
+  outline-offset: 2px;
 }
 
 /* Loading animation */

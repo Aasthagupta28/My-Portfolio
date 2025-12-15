@@ -8,7 +8,7 @@ const person: Person = {
   name: `Aastha Gupta`,
   role: "Software Engineer",
   avatar: "/images/photo.jpeg",
-  email: "guptaaastha282002@gmail.com",
+  email: "gaastha392@gmail.com",
   location: "Asia/Kolkata", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   languages: ["English", "Hindi", "Punjabi"], // optional: Leave the array empty if you don't want to display languages
 };

@@ -20,27 +20,30 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const currentRef = ref.current;
+    if (!currentRef) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setTimeout(() => {
+            const timeoutId = setTimeout(() => {
               setIsVisible(true);
             }, delay);
+            return () => clearTimeout(timeoutId);
           }
         });
       },
       { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
+    observer.observe(currentRef);
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
+      observer.disconnect();
     };
   }, [delay]);
 

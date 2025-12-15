@@ -20,3 +20,6 @@ export { ContactSection } from "@/components/ContactSection";
 export { CustomMDX } from "@/components/mdx";
 export { IntroSection } from "@/components/IntroSection";
 export { WhatIDoCard } from "@/components/WhatIDoCard";
+export { StatsSection } from "@/components/StatsSection";
+export { ServicesSection } from "@/components/ServicesSection";
+export { ProcessSection } from "@/components/ProcessSection";

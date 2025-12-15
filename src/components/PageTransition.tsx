@@ -1,20 +1,25 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { usePathname } from "next/navigation";
 import styles from "./PageTransition.module.scss";
 
 export const PageTransition = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const prevPathnameRef = useRef(pathname);
 
   useEffect(() => {
-    setIsTransitioning(true);
-    const timer = setTimeout(() => {
-      setIsTransitioning(false);
-    }, 600);
+    // Only trigger transition if pathname actually changed
+    if (prevPathnameRef.current !== pathname) {
+      setIsTransitioning(true);
+      const timer = setTimeout(() => {
+        setIsTransitioning(false);
+        prevPathnameRef.current = pathname;
+      }, 600);
 
-    return () => clearTimeout(timer);
+      return () => clearTimeout(timer);
+    }
   }, [pathname]);
 
   return (
