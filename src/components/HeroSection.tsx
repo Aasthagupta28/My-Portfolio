@@ -63,6 +63,28 @@ export const HeroSection = () => {
     return () => clearTimeout(timeout);
   }, [displayText, isDeleting, currentTextIndex, typingSpeed]);
 
+  const handleResumeDownload = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('/resume.pdf');
+      if (!response.ok) {
+        throw new Error('Resume file not found');
+      }
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'Aastha_Gupta_Resume.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Error downloading resume:', error);
+      alert('Resume file not found. Please ensure resume.pdf exists in the public folder.');
+    }
+  };
+
   return (
     <div className={styles.heroSection}>
       <div
@@ -143,6 +165,7 @@ export const HeroSection = () => {
               size="m"
               data-border="rounded"
               className={styles.ctaButton}
+              onClick={handleResumeDownload}
             >
               Download Resume
             </Button>

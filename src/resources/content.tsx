@@ -198,6 +198,10 @@ const about: About = {
             icon: "html",
           },
           {
+            name: "Tailwind Css",
+            icon: "tailwindcss",
+          },
+          {
             name: "JavaScript",
             icon: "javascript",
           },

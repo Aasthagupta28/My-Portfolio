@@ -21,7 +21,7 @@ const skillGroups = [
     skills: [
       { name: "HTML/CSS", icon: "html" },
       { name: "Bootstrap", icon: "bootstrap" },
-      { name: "SCSS", icon: "css" },
+      { name: "Tailwind Css", icon: "css" },
       { name: "Photoshop", icon: "photoshop" },
     ],
   },
