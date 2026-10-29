@@ -209,5 +209,11 @@ type CustomMDXProps = MDXRemoteProps & {
 };
 
 export function CustomMDX(props: CustomMDXProps) {
-  return <MDXRemote {...props} components={{ ...components, ...(props.components || {}) }} />;
+  return (
+    <MDXRemote
+      {...props}
+      options={{ blockJS: false, ...props.options }}
+      components={{ ...components, ...(props.components || {}) }}
+    />
+  );
 }
