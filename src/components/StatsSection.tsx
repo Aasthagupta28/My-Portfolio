@@ -4,16 +4,24 @@ import { useEffect, useRef, useState } from "react";
 import { Heading, Text, Column, Row } from "@once-ui-system/core";
 import styles from "./StatsSection.module.scss";
 
-const stats = [
-  { number: "3+", label: "Years Experience", icon: "EXP" },
-  { number: "7+", label: "Projects Completed", icon: "PRO" },
-  { number: "5", label: "Client Websites", icon: "WEB" },
-  { number: "100%", label: "Client Satisfaction", icon: "SAT" },
+const stats: Array<{
+  value: number;
+  suffix: string;
+  label: string;
+  icon: string;
+  staticText?: string;
+}> = [
+  { value: 3, suffix: "+", label: "Years of experience", icon: "YRS" },
+  { value: 9, suffix: "", label: "Products shipped", icon: "PRD" },
+  { value: 2, suffix: "", label: "Product companies", icon: "COS" },
+  { value: 0, suffix: "", label: "Open to roles & freelance", icon: "NOW", staticText: "Now" },
 ];
 
 export const StatsSection = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [countedStats, setCountedStats] = useState(stats.map((stat) => ({ number: stat.number, label: stat.label })));
+  const [countedStats, setCountedStats] = useState(
+    stats.map((stat) => stat.staticText || `0${stat.suffix}`),
+  );
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -44,14 +52,19 @@ export const StatsSection = () => {
 
   const animateNumbers = () => {
     stats.forEach((stat, index) => {
-      const targetValue = stat.number;
-      const isPercentage = targetValue.includes("%");
-      const numericValue = parseInt(targetValue.replace(/\D/g, "")) || 0;
-      
+      if (stat.staticText) {
+        setCountedStats((prev) => {
+          const next = [...prev];
+          next[index] = stat.staticText ?? "Now";
+          return next;
+        });
+        return;
+      }
+
+      const numericValue = stat.value;
       let current = 0;
-      const increment = numericValue / 50;
-      const duration = 2000;
-      const stepTime = duration / 50;
+      const increment = numericValue / 40;
+      const stepTime = 2000 / 40;
 
       const timer = setInterval(() => {
         current += increment;
@@ -59,14 +72,11 @@ export const StatsSection = () => {
           current = numericValue;
           clearInterval(timer);
         }
-        
+
         setCountedStats((prev) => {
-          const newStats = [...prev];
-          newStats[index] = {
-            number: isPercentage ? `${Math.floor(current)}%` : `${Math.floor(current)}+`,
-            label: stat.label,
-          };
-          return newStats;
+          const next = [...prev];
+          next[index] = `${Math.floor(current)}${stat.suffix}`;
+          return next;
         });
       }, stepTime);
     });
@@ -76,11 +86,11 @@ export const StatsSection = () => {
     <section ref={sectionRef} className={styles.statsSection}>
       <div className={styles.container}>
         <div className={`${styles.header} ${isVisible ? styles.visible : ""}`}>
-          <Heading variant="heading-strong-xl" className={styles.title}>
-            By The Numbers
+          <Heading as="h2" variant="heading-strong-xl" className={styles.title}>
+            At a glance
           </Heading>
           <Text variant="body-default-l" onBackground="neutral-weak" className={styles.subtitle}>
-            A glimpse into my professional journey and achievements.
+            Full-stack product work across two companies, from enterprise UI to SaaS platforms.
           </Text>
         </div>
 
@@ -92,7 +102,7 @@ export const StatsSection = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className={styles.icon}>{stat.icon}</div>
-              <div className={styles.number}>{countedStats[index]?.number || stat.number}</div>
+              <div className={styles.number}>{countedStats[index]}</div>
               <Text variant="body-default-m" onBackground="neutral-weak" className={styles.label}>
                 {stat.label}
               </Text>

@@ -1,13 +1,13 @@
-/* Front-end Developer Portfolio Custom Styles */
+/* Full Stack Developer portfolio */
 
 /* Professional Developer Theme Colors */
 :root {
-  --primary-color: #6366f1;
-  --secondary-color: #14b8a6;
-  --background-dark: #0a0a0a;
-  --background-darker: #1a1a1a;
-  --text-primary: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
+  --primary-color: #1f4d3a;
+  --secondary-color: #9a6b45;
+  --background-dark: #f4f0e8;
+  --background-darker: #fffdf9;
+  --text-primary: #1c1915;
+  --text-secondary: #5c564e;
 }
 
 /* Smooth scrolling and animations */
@@ -21,8 +21,8 @@ html {
 }
 
 body {
-  background: var(--background-dark);
-  color: var(--text-primary);
+  background: #f4f0e8;
+  color: #1c1915;
   overflow-x: hidden;
   max-width: 100vw;
   width: 100%;
@@ -135,7 +135,7 @@ code {
 
 /* Text selection styling */
 ::selection {
-  background: rgba(111, 148, 241, 0.3);
+  background: rgba(31, 77, 58, 0.18);
   color: inherit;
 }
 
@@ -309,7 +309,7 @@ a {
 }
 
 a:hover {
-  opacity: 0.8;
+  opacity: 1;
 }
 
 /* Smooth button interactions */
@@ -378,7 +378,7 @@ img, video {
   }
 }
 
-/* Curtain effect for sections */
+/* Loading animation */
 .curtain-section {
   position: relative;
   overflow: hidden;
@@ -402,5 +402,27 @@ img, video {
   }
   to {
     transform: translateX(100%);
+  }
+}
+
+@media print {
+  header,
+  footer {
+    display: none !important;
+  }
+
+  body {
+    background: #fff !important;
+  }
+}
+
+@media print {
+  header,
+  footer {
+    display: none !important;
+  }
+
+  body {
+    background: #fff !important;
   }
 }

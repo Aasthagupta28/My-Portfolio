@@ -37,6 +37,11 @@ import {
   SiGit,
   SiAdobephotoshop,
   SiTailwindcss,
+  SiPython,
+  SiDjango,
+  SiFastapi,
+  SiPostgresql,
+  SiOpenai,
 } from "react-icons/si";
 
 import { FaDiscord, FaGithub, FaLinkedin, FaX, FaThreads, FaInstagram, FaXTwitter, FaFacebook, FaPinterest, FaWhatsapp, FaReddit, FaTelegram, } from "react-icons/fa6";
@@ -78,6 +83,11 @@ export const iconLibrary: Record<string, IconType> = {
   wordpress: SiWordpress,
   git: SiGit,
   photoshop: SiAdobephotoshop,
+  python: SiPython,
+  django: SiDjango,
+  fastapi: SiFastapi,
+  postgresql: SiPostgresql,
+  openai: SiOpenai,
   facebook: FaFacebook,
   pinterest: FaPinterest,
   whatsapp: FaWhatsapp,

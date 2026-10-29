@@ -1,9 +1,9 @@
 .skillBox {
   position: relative;
   padding: 1.25rem;
-  background: var(--scheme-page-background);
-  border: 2px solid var(--scheme-neutral-alpha-weak);
-  border-radius: 20px;
+  background: #f6f3ec;
+  border: 1px solid #e6dfd4;
+  border-radius: 16px;
   overflow: hidden;
   opacity: 0;
   transform: translateY(30px) scale(0.95);
@@ -16,10 +16,9 @@
   }
 
   &.hovered {
-    transform: translateY(-8px) scale(1.02);
-    border-color: var(--scheme-brand-alpha-medium);
-    box-shadow: 0 15px 40px var(--scheme-brand-alpha-weak),
-      0 0 0 1px var(--scheme-brand-alpha-weak);
+    transform: translateY(-2px);
+    border-color: #1f4d3a;
+    box-shadow: none;
   }
 }
 
@@ -32,15 +31,7 @@
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  color: var(--scheme-neutral-on-background-strong);
-  background: linear-gradient(
-    135deg,
-    var(--scheme-brand-background-strong) 0%,
-    var(--scheme-accent-background-strong) 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #1c1915;
 }
 
 .description {

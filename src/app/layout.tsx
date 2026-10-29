@@ -14,7 +14,7 @@ import {
   SpacingToken,
 } from "@once-ui-system/core";
 import { Footer, Header, RouteGuard, Providers, PageTransition } from "@/components";
-import { baseURL, effects, fonts, style, dataStyle, home } from "@/resources";
+import { baseURL, effects, fonts, style, dataStyle, home, person } from "@/resources";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -52,9 +52,6 @@ export default async function RootLayout({
               (function() {
                 try {
                   const root = document.documentElement;
-                  const defaultTheme = 'system';
-                  
-                  // Set defaults from config
                   const config = ${JSON.stringify({
                     brand: style.brand,
                     accent: style.accent,
@@ -67,39 +64,58 @@ export default async function RootLayout({
                     scaling: style.scaling,
                     "viz-style": dataStyle.variant,
                   })};
-                  
-                  // Apply default values
+
+                  ['theme','neutral','brand','accent','solid','solid-style','border','surface','transition','scaling'].forEach(function(key) {
+                    localStorage.removeItem('data-' + key);
+                  });
+
                   Object.entries(config).forEach(([key, value]) => {
                     root.setAttribute('data-' + key, value);
                   });
-                  
-                  // Resolve theme
-                  const resolveTheme = (themeValue) => {
-                    if (!themeValue || themeValue === 'system') {
-                      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-                    }
-                    return themeValue;
-                  };
-                  
-                  // Apply saved theme
-                  const savedTheme = localStorage.getItem('data-theme');
-                  const resolvedTheme = resolveTheme(savedTheme);
-                  root.setAttribute('data-theme', resolvedTheme);
-                  
-                  // Apply any saved style overrides
-                  const styleKeys = Object.keys(config);
-                  styleKeys.forEach(key => {
-                    const value = localStorage.getItem('data-' + key);
-                    if (value) {
-                      root.setAttribute('data-' + key, value);
-                    }
-                  });
+                  root.setAttribute('data-theme', 'light');
                 } catch (e) {
                   console.error('Failed to initialize theme:', e);
-                  document.documentElement.setAttribute('data-theme', 'dark');
+                  document.documentElement.setAttribute('data-theme', 'light');
                 }
               })();
             `,
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: person.name,
+              jobTitle: person.role,
+              email: `mailto:${person.email}`,
+              telephone: "+91-8219469104",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "VPO Sajaopiplu",
+                addressLocality: "Mandi",
+                addressRegion: "Himachal Pradesh",
+                addressCountry: "IN",
+              },
+              sameAs: [
+                "https://github.com/Aasthagupta28",
+                "https://www.linkedin.com/in/aastha-gupta-a42037218",
+              ],
+              knowsAbout: [
+                "Next.js",
+                "React",
+                "TypeScript",
+                "Angular",
+                "Django",
+                "FastAPI",
+                "Python",
+                "PostgreSQL",
+                "Payload CMS",
+                "REST APIs",
+                "Tailwind CSS",
+              ],
+            }),
           }}
         />
       </head>

@@ -34,7 +34,7 @@ export default function About() {
       items: [],
     },
     {
-      title: "My Journey",
+      title: "Work Experience",
       display: true,
       items: [],
     },
@@ -55,43 +55,38 @@ export default function About() {
     },
   ];
 
-  const timelineItems = [
-    {
-      year: "2024 - Present",
-      title: "Junior Frontend Developer",
-      company: "2B Innovations Pvt. Ltd. (Mohali)",
-      description:
-        "Developed and maintained multiple web applications including QComm and Digital Signage. Rebuilt QComm using Next.js and React, improving performance and scalability. Created 6 custom client-facing websites using WordPress.",
-    },
-    {
-      year: "2023",
-      title: "Front End Developer Intern",
-      company: "2B Innovations Pvt. Ltd. (Mohali)",
-      description:
-        "Worked on real-time Loyalty Program project. Built responsive UI using Bootstrap 5, CSS, and Angular. Implemented APIs and handled dynamic data binding. Gained hands-on experience in teamwork and real-time project workflows.",
-    },
-  ];
+  const timelineItems = about.work.experiences.map((job) => ({
+    year: `${job.timeframe}${job.place ? ` · ${job.place}` : ""}`,
+    title: job.role,
+    company: job.company,
+    description: "",
+    points: job.achievements.filter((item): item is string => typeof item === "string"),
+  }));
 
   const whatIDo = [
     {
-      title: "Build product-grade UI",
-      description: "Creating scalable and maintainable user interfaces",
+      title: "Full-stack product features",
+      description: "Next.js and React interfaces backed by Django or FastAPI and PostgreSQL.",
     },
     {
-      title: "Integrate APIs",
-      description: "Seamless backend integration and real-time data handling",
+      title: "Business workflows",
+      description: "CRM pipelines, HR modules, invoicing, and operational dashboards.",
     },
     {
-      title: "Real-time dashboards",
-      description: "Building high-performance monitoring and control systems",
+      title: "API integration",
+      description: "REST APIs, secure data handling, and reliable frontend-to-backend delivery.",
     },
     {
-      title: "Responsive design",
-      description: "Mobile-first approach for all devices and screen sizes",
+      title: "CMS platforms",
+      description: "Payload CMS, translations, and admin tools for enterprise content.",
     },
     {
-      title: "Testing and debugging",
-      description: "Ensuring quality delivery across all platforms",
+      title: "Enterprise interfaces",
+      description: "Angular and React apps for alerts, signage, loyalty, and cashier systems.",
+    },
+    {
+      title: "AI-assisted features",
+      description: "OpenAI and fal.ai integrations for text, voice, video, and 3D workflows.",
     },
   ];
 
@@ -214,7 +209,7 @@ export default function About() {
                   <ScrollReveal delay={200} direction="up">
                     <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl">
                       <Text variant="body-default-l" onBackground="neutral-weak">
-                        I am a Frontend Developer with over 3 years of professional experience building responsive, user-centric web applications. I have worked with organizations and delivered multiple real-world projects, gaining strong expertise in modern frontend technologies and UI development. My focus is on creating scalable interfaces, optimizing performance, and writing clean, maintainable code. I value usability and attention to detail, and I enjoy translating complex requirements into intuitive, high-quality digital experiences.
+                        I am a Full Stack Developer with experience building web applications, business platforms, and SaaS products. At Orbantis Technologies I work with Next.js, React, Tailwind CSS, Django, and PostgreSQL on HRMS, eCommerce, CRM, and CMS products. At 2B Innovations in Mohali I built enterprise interfaces in Angular, React, Next.js, and TypeScript for QComm, Digital Signage, Loyalty Program, and Cashier System. I focus on clear business workflows, reliable APIs, and interfaces teams can use every day.
                       </Text>
                     </Column>
                   </ScrollReveal>
@@ -222,8 +217,8 @@ export default function About() {
               ),
               <Column key="journey-section" fillWidth gap="l" marginBottom="40">
                 <ScrollReveal delay={100} direction="up">
-                  <Heading as="h2" variant="display-strong-s" marginBottom="m" id="my-journey">
-                    My Journey
+                  <Heading as="h2" variant="display-strong-s" marginBottom="m" id="Work Experience">
+                    Work Experience
                   </Heading>
                 </ScrollReveal>
                 <Timeline items={timelineItems} />
@@ -265,8 +260,8 @@ export default function About() {
                       <ScrollReveal key={`study-${institution.name}-${index}`} delay={index * 100} direction="left">
                         <div
                           style={{
-                            background: "rgba(99, 102, 241, 0.05)",
-                            border: "1px solid rgba(99, 102, 241, 0.2)",
+                            background: "#fffdf9",
+                            border: "1px solid #e6dfd4",
                             borderRadius: "16px",
                             padding: "1.5rem",
                           }}

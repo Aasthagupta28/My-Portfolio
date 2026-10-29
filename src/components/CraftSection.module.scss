@@ -1,0 +1,169 @@
+.section {
+  padding: 4.5rem 0;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(196, 98, 45, 0.08), transparent 32%),
+    #fffaf3;
+  border-top: 1px solid #eadfce;
+  border-bottom: 1px solid #eadfce;
+}
+
+.inner {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+}
+
+.kicker {
+  margin: 0 0 0.6rem;
+  color: #c4622d;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 650;
+}
+
+.title {
+  color: #1a1612 !important;
+  background: none !important;
+  -webkit-text-fill-color: #1a1612 !important;
+  letter-spacing: -0.04em !important;
+  font-size: clamp(2.1rem, 4vw, 3.2rem) !important;
+}
+
+.lead {
+  max-width: 38rem;
+  margin: 0.8rem 0 0;
+  color: #5c564e;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.intro {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+.intro.visible {
+  animation: rise 0.6s ease forwards;
+}
+
+.palette {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin: 2rem 0 1.25rem;
+}
+
+.swatch {
+  min-height: 118px;
+  border-radius: 16px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: transform 0.25s ease;
+}
+
+.swatch:hover {
+  transform: translateY(-4px);
+}
+
+.ink { background: #1a1612; color: #f6f1e8; }
+.pine { background: #1f4d3a; color: #f3faf6; }
+.clay { background: #c4622d; color: #fff8f3; }
+.paper {
+  background: #f6f1e8;
+  color: #1a1612;
+  border: 1px solid #eadfce;
+}
+
+.swatchName {
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+}
+
+.swatchHex {
+  margin-top: 0.15rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  opacity: 0.8;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.85rem;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #eadfce;
+  border-radius: 16px;
+  padding: 1.15rem 1.15rem 1.25rem;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card.visible {
+  animation: rise 0.55s ease forwards;
+}
+
+.card:hover {
+  border-color: #1f4d3a;
+  box-shadow: 0 14px 30px rgba(26, 22, 18, 0.06);
+}
+
+.index {
+  color: #c4622d;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+}
+
+.card h3 {
+  margin: 0.45rem 0 0.4rem;
+  color: #1a1612;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+}
+
+.card p {
+  margin: 0;
+  color: #5c564e;
+  line-height: 1.55;
+  font-size: 0.95rem;
+}
+
+@keyframes rise {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .palette,
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 3rem 0;
+  }
+
+  .palette,
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro,
+  .card,
+  .swatch {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

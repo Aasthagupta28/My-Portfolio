@@ -14,6 +14,7 @@ import {
   Row,
   Avatar,
   Line,
+  Tag,
 } from "@once-ui-system/core";
 import { baseURL, about, person, work } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
@@ -97,9 +98,18 @@ export default async function Project({
           <Text variant="label-strong-m">Projects</Text>
         </SmartLink>
         <Text variant="body-default-xs" onBackground="neutral-weak" marginBottom="12">
-          {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
+          {post.metadata.context || (post.metadata.publishedAt && formatDate(post.metadata.publishedAt))}
         </Text>
-        <Heading variant="display-strong-m">{post.metadata.title}</Heading>
+        <Heading as="h1" variant="display-strong-m">{post.metadata.title}</Heading>
+        {post.metadata.stack.length > 0 && (
+          <Row gap="8" wrap horizontal="center" paddingTop="12">
+            {post.metadata.stack.map((tech) => (
+              <Tag key={tech} size="m">
+                {tech}
+              </Tag>
+            ))}
+          </Row>
+        )}
       </Column>
       <Row marginBottom="32" horizontal="center">
         <Row gap="16" vertical="center">

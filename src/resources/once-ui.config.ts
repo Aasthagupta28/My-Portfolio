@@ -22,12 +22,13 @@ const routes: RoutesConfig = {
   "/work": true,
   "/blog": false,
   "/gallery": false,
+  "/resume": true,
 };
 
 const display: DisplayConfig = {
   location: false,
   time: false,
-  themeSwitcher: true,
+  themeSwitcher: false,
 };
 
 // Enable password protection on selected routes
@@ -71,15 +72,15 @@ const fonts: FontsConfig = {
 
 // default customization applied to the HTML in the main layout.tsx
 const style: StyleConfig = {
-  theme: "system", // dark | light | system
-  neutral: "gray", // sand | gray | slate | custom
-  brand: "cyan", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
-  accent: "cyan", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
+  theme: "light", // dark | light | system
+  neutral: "sand", // sand | gray | slate | custom
+  brand: "moss", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
+  accent: "moss", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
   solid: "contrast", // color | contrast
   solidStyle: "flat", // flat | plastic
-  border: "playful", // rounded | playful | conservative
-  surface: "translucent", // filled | translucent
-  transition: "all", // all | micro | macro
+  border: "conservative", // rounded | playful | conservative
+  surface: "filled", // filled | translucent
+  transition: "micro", // all | micro | macro
   scaling: "100", // 90 | 95 | 100 | 105 | 110
 };
 
@@ -99,31 +100,31 @@ const dataStyle: DataStyleConfig = {
 
 const effects: EffectsConfig = {
   mask: {
-    cursor: true,
+    cursor: false,
     x: 50,
     y: 0,
     radius: 100,
   },
   gradient: {
-    display: true,
-    opacity: 60,
+    display: false,
+    opacity: 20,
     x: 50,
-    y: 30,
-    width: 80,
-    height: 60,
-    tilt: 15,
+    y: 0,
+    width: 100,
+    height: 40,
+    tilt: 0,
     colorStart: "brand-background-strong",
     colorEnd: "page-background",
   },
   dots: {
-    display: true,
-    opacity: 50,
+    display: false,
+    opacity: 10,
     size: "2",
     color: "brand-background-strong",
   },
   grid: {
-    display: true,
-    opacity: 30,
+    display: false,
+    opacity: 10,
     color: "neutral-alpha-medium",
     width: "0.25rem",
     height: "0.25rem",
@@ -188,7 +189,7 @@ const schema: SchemaConfig = {
   type: "Person",
   name: "Aastha Gupta",
   description: home.description,
-  email: "gaastha392@gmail.com",
+  email: "guptaaastha282002@gmail.com",
 };
 
 // social links

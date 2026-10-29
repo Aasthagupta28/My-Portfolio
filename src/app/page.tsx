@@ -11,7 +11,7 @@ import {
   HorizontalProjectsWrapper, 
   ContactSection,
   StatsSection,
-  ProcessSection
+  ExperienceSection
 } from "@/components";
 
 export async function generateMetadata() {
@@ -44,7 +44,7 @@ export default function Home() {
       <StatsSection />
       <SkillsSection />
       <HorizontalProjectsWrapper />
-      <ProcessSection />
+      <ExperienceSection />
       <ContactSection />
     </>
   );

@@ -1,12 +1,13 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Heading, Text, Column, Row, Button, IconButton } from "@once-ui-system/core";
+import { Heading, Text, IconButton } from "@once-ui-system/core";
 import { person, social } from "@/resources";
 import styles from "./ContactSection.module.scss";
 
 export const ContactSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [status, setStatus] = useState<"idle" | "opened">("idle");
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -33,18 +34,40 @@ export const ContactSection = () => {
   }, []);
 
   const email = person.email;
-  const phone = "8219469104";
-  const location = "VPO Sajaopiplu Distt Mandi HP, India";
+  const phone = person.phone || "";
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const name = String(data.get("name") || "").trim();
+    const from = String(data.get("email") || "").trim();
+    const message = String(data.get("message") || "").trim();
+    const url =
+      "https://mail.google.com/mail/?view=cm&fs=1&to=" +
+      encodeURIComponent(email) +
+      "&su=" +
+      encodeURIComponent(`Portfolio inquiry from ${name}`) +
+      "&body=" +
+      encodeURIComponent(`Name: ${name}\nEmail: ${from}\n\n${message}`);
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.target = "_blank";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    setStatus("opened");
+  };
 
   return (
     <section ref={sectionRef} className={styles.contactSection} id="contact">
       <div className={styles.container}>
         <div className={`${styles.header} ${isVisible ? styles.visible : ""}`}>
-          <Heading variant="display-strong-l" className={styles.title}>
-            Let's Work Together
+          <Heading as="h2" variant="display-strong-l" className={styles.title}>
+            Let's work together
           </Heading>
           <Text variant="body-default-l" onBackground="neutral-weak" className={styles.subtitle}>
-            I'm open for freelance, full-time, and project-based work.
+            I am open to full-time roles, freelance projects, and client proposals. Tell me what you need built.
           </Text>
         </div>
 
@@ -55,7 +78,12 @@ export const ContactSection = () => {
                 <Text variant="body-default-s" onBackground="brand-weak" className={styles.label}>
                   Email
                 </Text>
-                <a href={`mailto:${email}`} className={styles.contactLink}>
+                <a
+                  href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.contactLink}
+                >
                   {email}
                 </a>
               </div>
@@ -67,15 +95,6 @@ export const ContactSection = () => {
                 <a href={`tel:${phone}`} className={styles.contactLink}>
                   {phone}
                 </a>
-              </div>
-
-              <div className={styles.contactItem}>
-                <Text variant="body-default-s" onBackground="brand-weak" className={styles.label}>
-                  Location
-                </Text>
-                <Text variant="body-default-m" onBackground="neutral-weak" className={styles.contactText}>
-                  {location}
-                </Text>
               </div>
 
               <div className={styles.socialLinks}>
@@ -97,7 +116,7 @@ export const ContactSection = () => {
           </div>
 
           <div className={styles.rightSide}>
-            <form className={styles.contactForm}>
+            <form className={styles.contactForm} onSubmit={handleSubmit}>
               <div className={styles.formGroup}>
                 <label htmlFor="name" className={styles.label}>
                   Name
@@ -134,21 +153,20 @@ export const ContactSection = () => {
                   id="message"
                   name="message"
                   className={styles.textarea}
-                  placeholder="Tell me about your project..."
+                  placeholder="What should we build?"
                   rows={6}
                   required
                 />
               </div>
 
-              <Button
-                type="submit"
-                variant="primary"
-                size="m"
-                data-border="rounded"
-                className={styles.submitButton}
-              >
-                Send Message
-              </Button>
+              <button type="submit" className={styles.submitButton}>
+                Send inquiry
+              </button>
+              <p className={styles.formNote} role="status">
+                {status === "opened"
+                  ? `Gmail opened with this message to ${email}. Press Send there.`
+                  : `Opens Gmail with your message, ready to send to ${email}.`}
+              </p>
             </form>
           </div>
         </div>

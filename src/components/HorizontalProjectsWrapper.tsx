@@ -15,6 +15,9 @@ export const HorizontalProjectsWrapper = () => {
         summary: post.metadata.summary,
         publishedAt: post.metadata.publishedAt,
         link: post.metadata.link,
+        stack: post.metadata.stack,
+        highlights: post.metadata.highlights,
+        context: post.metadata.context,
       },
     }));
 

@@ -23,3 +23,5 @@ export { WhatIDoCard } from "@/components/WhatIDoCard";
 export { StatsSection } from "@/components/StatsSection";
 export { ServicesSection } from "@/components/ServicesSection";
 export { ProcessSection } from "@/components/ProcessSection";
+export { ExperienceSection } from "@/components/ExperienceSection";
+export { CraftSection } from "@/components/CraftSection";

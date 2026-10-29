@@ -9,6 +9,7 @@ interface TimelineItem {
   title: string;
   company: string;
   description: string;
+  points?: string[];
 }
 
 interface TimelineProps {
@@ -69,9 +70,21 @@ export const Timeline: React.FC<TimelineProps> = ({ items }) => {
             <Text variant="body-default-m" onBackground="brand-medium" className={styles.company}>
               {item.company}
             </Text>
-            <Text variant="body-default-m" onBackground="neutral-weak" className={styles.description}>
-              {item.description}
-            </Text>
+            {item.points && item.points.length > 0 ? (
+              <ul className={styles.points}>
+                {item.points.map((point) => (
+                  <li key={point}>
+                    <Text variant="body-default-m" onBackground="neutral-weak">
+                      {point}
+                    </Text>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <Text variant="body-default-m" onBackground="neutral-weak" className={styles.description}>
+                {item.description}
+              </Text>
+            )}
           </div>
         </div>
       ))}

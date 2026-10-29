@@ -5,24 +5,23 @@ import { Line, Row, Text } from "@once-ui-system/core";
 const person: Person = {
   firstName: "Aastha",
   lastName: "Gupta",
-  name: `Aastha Gupta`,
-  role: "Software Engineer",
+  name: "Aastha Gupta",
+  role: "Full Stack Developer",
   avatar: "/images/photo.jpeg",
-  email: "gaastha392@gmail.com",
-  location: "Asia/Kolkata", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Hindi", "Punjabi"], // optional: Leave the array empty if you don't want to display languages
+  email: "guptaaastha282002@gmail.com",
+  phone: "+91 8219469104",
+  locationLabel: "VPO Sajaopiplu, Distt. Mandi, Himachal Pradesh, India",
+  location: "Asia/Kolkata",
+  languages: ["English · Professional", "Hindi · Professional", "Punjabi · Native"],
 };
 
 const newsletter: Newsletter = {
   display: false,
   title: <>Subscribe to {person.firstName}'s Newsletter</>,
-  description: <>My weekly newsletter about creativity and engineering</>,
+  description: <>Notes on product engineering and full-stack delivery</>,
 };
 
 const social: Social = [
-  // Links are automatically displayed.
-  // Import new icons in /once-ui/icons.ts
-  // Set essentials: true for links you want to show on the about page
   {
     name: "GitHub",
     icon: "github",
@@ -47,34 +46,40 @@ const home: Home = {
   path: "/",
   image: "/images/og/home.jpg",
   label: "Home",
-  title: `${person.name}'s Portfolio`,
-  description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Crafting Digital Experiences with Code & Creativity</>,
+  title: "Aastha Gupta | Full Stack Developer",
+  description:
+    "Full Stack Developer in India. Next.js, React, TypeScript, Django, FastAPI, and PostgreSQL. SaaS, CRM, HRMS, and eCommerce. Open to full-time and freelance.",
+  headline: <>Full Stack Developer for SaaS, business platforms, and product workflows</>,
   featured: {
     display: true,
     title: (
       <Row gap="12" vertical="center">
-        <strong className="ml-4">Featured Project</strong>{" "}
+        <strong className="ml-4">Featured work</strong>{" "}
         <Line background="brand-alpha-strong" vert height="20" />
         <Text marginRight="4" onBackground="brand-medium">
-          Dewa Smart Ticker
+          AgencyFlow CRM
         </Text>
       </Row>
     ),
-    href: "/work/dewa-smart-ticker",
+    href: "/work/agencyflow-crm",
   },
   subline: (
     <>
-    I'm Aastha, a <Text as="span" size="xl" weight="strong">Software Engineer</Text> passionate about building <br /> responsive web applications and creating seamless user experiences.
-</>
+      I build scalable web applications, business platforms, and SaaS products with{" "}
+      <Text as="span" size="xl" weight="strong">
+        Next.js, React, Django, and PostgreSQL
+      </Text>
+      .
+    </>
   ),
 };
 
 const about: About = {
   path: "/about",
   label: "About",
-  title: `About – ${person.name}`,
-  description: `Meet ${person.name}, ${person.role} from India`,
+  title: "About Aastha Gupta | Full Stack Developer",
+  description:
+    "Full Stack Developer with experience at Orbantis Technologies and 2B Innovations. Next.js, React, Angular, Django, FastAPI, PostgreSQL, and Payload CMS.",
   tableOfContent: {
     display: true,
     subItems: false,
@@ -91,161 +96,117 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        Aastha is a Software Engineer based in India with a passion for building responsive web applications 
-        and creating seamless user experiences. With expertise in Angular, React, Next.js, and modern front-end 
-        technologies, she specializes in developing scalable applications and implementing dynamic functionality 
-        through API integrations.
+        Aastha Gupta is a Full Stack Developer who builds web
+        applications, business platforms, and SaaS products — from responsive interfaces to the
+        APIs, workflows, and data models behind them. Her work spans HRMS, CRM, eCommerce, CMS, and
+        enterprise communication systems using Next.js, React, TypeScript, Django, FastAPI, and
+        PostgreSQL.
       </>
     ),
   },
   work: {
-    display: true, // set to false to hide this section
+    display: true,
     title: "Work Experience",
     experiences: [
       {
-        company: "2B Innovations Pvt. Ltd. (Mohali)",
-        timeframe: "11/2024 – Present",
-        role: "Junior Frontend Developer",
+        company: "Orbantis Technologies Pvt. Ltd.",
+        timeframe: "Dec 2025 – Present",
+        place: "Remote",
+        role: "Frontend / Full Stack Developer",
         achievements: [
-          <React.Fragment key="achievement-1">
-            Developed and maintained multiple web applications including QComm and Digital Signage, 
-            using Angular, TypeScript, Bootstrap, and CSS to create responsive and user-friendly interfaces.
-          </React.Fragment>,
-          <React.Fragment key="achievement-2">
-            Rebuilt the QComm project using Next.js and React, improving performance and scalability, 
-            while implementing RESTful APIs and reusable UI components.
-          </React.Fragment>,
-          <React.Fragment key="achievement-3">
-            Designed and developed a mobile application and created client-specific UI designs using Bootstrap, 
-            and implemented dynamic functionality by integrating APIs using JavaScript.
-          </React.Fragment>,
-          <React.Fragment key="achievement-4">
-            Integrated dynamic APIs, handled real-time data, and optimized front-end performance for 
-            smooth user experience.
-          </React.Fragment>,
-          <React.Fragment key="achievement-5">
-            Collaborated with cross-functional teams including designers and backend developers, 
-            following Agile development practices and regular sprint reviews.
-          </React.Fragment>,
-          <React.Fragment key="achievement-6">
-            Created 6 custom client-facing websites using WordPress, ensuring SEO compatibility, 
-            responsiveness, and adherence to client branding requirements.
-          </React.Fragment>,
-          <React.Fragment key="achievement-7">
-            Conducted testing, debugging, and code reviews to ensure quality delivery across all platforms.
-          </React.Fragment>,
+          "Developed full-stack web applications using Next.js, React, Tailwind CSS, Django, and PostgreSQL.",
+          "Built responsive, scalable interfaces with modern UI practices for HRMS, eCommerce, and corporate CMS products.",
+          "Integrated Django APIs and customized Payload CMS for enterprise content workflows, translations, and admin tooling.",
+          "Shipped product features for AgencyFlow CRM, One World 3D, Smart HRMS, and Wooden Showpieces.",
         ],
         images: [],
       },
       {
-        company: "2B Innovations Pvt. Ltd. (Mohali)",
-        timeframe: "02/2023 – 10/2023",
-        role: "Front End Developer Intern",
+        company: "2B Innovations Pvt. Ltd.",
+        timeframe: "Jan 2023 – Nov 2025",
+        place: "Mohali",
+        role: "Frontend Developer / Intern",
         achievements: [
-          <React.Fragment key="intern-achievement-1">
-            Worked as part of a team on a real-time project called Loyalty Program, contributing to 
-            the design, development, and testing phases.
-          </React.Fragment>,
-          <React.Fragment key="intern-achievement-2">
-            Built responsive and interactive UI using Bootstrap 5, CSS, and Angular, ensuring 
-            cross-browser compatibility and mobile responsiveness.
-          </React.Fragment>,
-          <React.Fragment key="intern-achievement-3">
-            Implemented APIs and handled dynamic data binding using Angular and TypeScript.
-          </React.Fragment>,
-          <React.Fragment key="intern-achievement-4">
-            Actively collaborated with senior developers and followed best coding practices using Git 
-            for version control and daily commits.
-          </React.Fragment>,
-          <React.Fragment key="intern-achievement-5">
-            Gained hands-on experience in teamwork, and real-time project workflows.
-          </React.Fragment>,
+          "Developed enterprise web applications using Angular, React, Next.js, Bootstrap, and TypeScript.",
+          "Built responsive UI components and integrated REST APIs with dynamic data handling.",
+          "Worked on QComm, Digital Signage, Loyalty Program, and Cashier System.",
+          "Improved frontend performance, debugging, testing, and cross-browser compatibility.",
+          "Collaborated with development teams using Git and Agile workflows.",
         ],
         images: [],
       },
     ],
   },
   studies: {
-    display: true, // set to false to hide this section
+    display: true,
     title: "Education",
     institutions: [
       {
-        name: "B.Tech (CSE) with 7.77 CGPA",
-        description: <>Eternal University Sirmour (08/2019 – 06/2023)</>,
+        name: "B.Tech, Computer Science and Engineering · 7.77 CGPA",
+        description: <>Eternal University, Sirmour · Aug 2019 – Jun 2023</>,
       },
       {
-        name: "XII with 73%",
-        description: <>Government Senior Secondary School Bharari Mandi (HP) (04/2018 – 03/2019)</>,
+        name: "Class XII · 73%",
+        description: <>Government Senior Secondary School, Bharari, Mandi (HP) · Apr 2018 – Mar 2019</>,
       },
       {
-        name: "Matrix with 79%",
-        description: <>Shivalik Public School Bharari Mandi (HP) (04/2016 – 03/2017)</>,
+        name: "Class X · 79%",
+        description: <>Shivalik Public School, Bharari, Mandi (HP) · Apr 2016 – Mar 2017</>,
       },
     ],
   },
   technical: {
-    display: true, // set to false to hide this section
+    display: true,
     title: "Technical Skills",
     skills: [
       {
-        title: "Frontend Technologies",
+        title: "Frontend",
         description: (
-          <>Expertise in modern frontend frameworks and libraries for building responsive web applications.</>
+          <>
+            Product interfaces, dashboards, and reusable UI for web applications and business
+            platforms.
+          </>
         ),
         tags: [
-          {
-            name: "HTML/CSS",
-            icon: "html",
-          },
-          {
-            name: "Tailwind Css",
-            icon: "tailwindcss",
-          },
-          {
-            name: "JavaScript",
-            icon: "javascript",
-          },
-          {
-            name: "TypeScript",
-            icon: "typescript",
-          },
-          {
-            name: "Angular",
-            icon: "angular",
-          },
-          {
-            name: "React",
-            icon: "react",
-          },
-          {
-            name: "Next.js",
-            icon: "nextjs",
-          },
-          {
-            name: "Bootstrap",
-            icon: "bootstrap",
-          },
+          { name: "React.js", icon: "react" },
+          { name: "Next.js", icon: "nextjs" },
+          { name: "Angular", icon: "angular" },
+          { name: "TypeScript", icon: "typescript" },
+          { name: "JavaScript", icon: "javascript" },
+          { name: "HTML5", icon: "html" },
+          { name: "CSS3", icon: "css" },
+          { name: "Tailwind CSS", icon: "tailwindcss" },
+          { name: "Bootstrap", icon: "bootstrap" },
         ],
         images: [],
       },
       {
-        title: "Tools & Design",
-        description: (
-          <>Proficient in design tools and version control systems for efficient development workflows.</>
-        ),
+        title: "Backend",
+        description: <>APIs, business workflows, and server-side features for SaaS and enterprise apps.</>,
         tags: [
-          {
-            name: "Photoshop",
-            icon: "photoshop",
-          },
-          {
-            name: "Git",
-            icon: "git",
-          },
-          {
-            name: "WordPress",
-            icon: "wordpress",
-          },
+          { name: "Django", icon: "django" },
+          { name: "FastAPI", icon: "fastapi" },
+          { name: "Python", icon: "python" },
+          { name: "REST APIs", icon: "globe" },
+        ],
+        images: [],
+      },
+      {
+        title: "Databases & CMS",
+        description: <>Relational data and content systems for admin, commerce, and multi-language products.</>,
+        tags: [
+          { name: "PostgreSQL", icon: "postgresql" },
+          { name: "Payload CMS", icon: "document" },
+        ],
+        images: [],
+      },
+      {
+        title: "Tools & AI",
+        description: <>Delivery workflow plus AI services used in production features.</>,
+        tags: [
+          { name: "GitHub", icon: "github" },
+          { name: "Git", icon: "git" },
+          { name: "OpenAI API", icon: "openai" },
         ],
         images: [],
       },
@@ -258,17 +219,14 @@ const blog: Blog = {
   label: "Blog",
   title: "Writing about design and tech...",
   description: `Read what ${person.name} has been up to recently`,
-  // Create new blog posts by adding a new .mdx file to app/blog/posts
-  // All posts will be listed on the /blog route
 };
 
 const work: Work = {
   path: "/work",
   label: "Projects",
-  title: `Projects – ${person.name}`,
-  description: `Development projects by ${person.name}`,
-  // Create new project pages by adding a new .mdx file to app/work/projects
-  // All projects will be listed on the /home and /work routes
+  title: "Projects | Aastha Gupta, Full Stack Developer",
+  description:
+    "Case studies in CRM, AI production, HRMS, eCommerce, CMS, and enterprise alert systems built with Next.js, React, Django, FastAPI, and PostgreSQL.",
 };
 
 const gallery: Gallery = {
@@ -276,14 +234,7 @@ const gallery: Gallery = {
   label: "Gallery",
   title: `Photo gallery – ${person.name}`,
   description: `A photo collection by ${person.name}`,
-  // Images by https://lorant.one
-  // These are placeholder images, replace with your own
   images: [],
 };
 
 export { person, social, newsletter, home, about, blog, work, gallery };
-
-
-
-
-

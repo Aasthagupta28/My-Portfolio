@@ -29,8 +29,8 @@
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: #6366f1;
-  border: 3px solid #0a0a0a;
+  background: #1f4d3a;
+  border: 3px solid #f6f3ec;
   box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
   z-index: 2;
   position: relative;
@@ -55,7 +55,7 @@
 }
 
 .year {
-  color: #6366f1;
+  color: #1f4d3a;
   font-weight: 600;
   margin-bottom: 0.5rem;
   display: block;
@@ -73,8 +73,16 @@
 }
 
 .description {
-  color: rgba(255, 255, 255, 0.7);
+  color: #5c564e;
   line-height: 1.8;
+}
+
+.points {
+  margin: 0.75rem 0 0;
+  padding-left: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
 }
 
 @media (max-width: 768px) {

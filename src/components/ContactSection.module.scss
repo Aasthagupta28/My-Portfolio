@@ -1,6 +1,6 @@
 .contactSection {
-  padding: 6rem 2rem;
-  background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
+  padding: 4.5rem 0 5rem;
+  background: transparent;
   position: relative;
   overflow: hidden;
 }
@@ -24,17 +24,15 @@
 }
 
 .title {
-  font-size: 3rem;
-  background: linear-gradient(135deg, #ffffff 0%, #6366f1 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 1rem;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  color: #1c1915;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.6rem;
 }
 
 .subtitle {
-  font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.05rem;
+  color: #5c564e;
 }
 
 .content {
@@ -63,7 +61,7 @@
 }
 
 .label {
-  color: #6366f1;
+  color: #1f4d3a;
   font-weight: 600;
   font-size: 0.875rem;
   text-transform: uppercase;
@@ -71,19 +69,19 @@
 }
 
 .contactLink {
-  color: rgba(255, 255, 255, 0.9);
+  color: #1c1915;
   font-size: 1.1rem;
   text-decoration: none;
   transition: all 0.3s ease;
 
   &:hover {
-    color: #6366f1;
+    color: #1f4d3a;
     transform: translateX(5px);
   }
 }
 
 .contactText {
-  color: rgba(255, 255, 255, 0.7);
+  color: #5c564e;
   font-size: 1.1rem;
 }
 
@@ -102,10 +100,9 @@
 }
 
 .rightSide {
-  background: rgba(10, 10, 10, 0.6);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(99, 102, 241, 0.2);
-  border-radius: 24px;
+  background: #fffdf9;
+  border: 1px solid #e6dfd4;
+  border-radius: 16px;
   padding: 3rem;
 }
 
@@ -122,31 +119,31 @@
 }
 
 .label {
-  color: rgba(255, 255, 255, 0.9);
+  color: #1c1915;
   font-weight: 500;
   font-size: 0.875rem;
 }
 
 .input,
 .textarea {
-  background: rgba(99, 102, 241, 0.05);
-  border: 1px solid rgba(99, 102, 241, 0.2);
-  border-radius: 12px;
-  padding: 1rem;
-  color: #ffffff;
+  background: #fff;
+  border: 1px solid #e6dfd4;
+  border-radius: 10px;
+  padding: 0.9rem 1rem;
+  color: #1c1915;
   font-size: 1rem;
   font-family: inherit;
   transition: all 0.3s ease;
 
   &:focus {
     outline: none;
-    border-color: #6366f1;
-    background: rgba(99, 102, 241, 0.1);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+    border-color: #1f4d3a;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(31, 77, 58, 0.12);
   }
 
   &::placeholder {
-    color: rgba(255, 255, 255, 0.4);
+    color: #8a8176;
   }
 }
 
@@ -155,14 +152,46 @@
   min-height: 120px;
 }
 
-.submitButton {
-  margin-top: 1rem;
-  transition: all 0.3s ease;
+.honey {
+  position: absolute;
+  left: -9999px;
+  height: 0;
+  width: 0;
+  opacity: 0;
+}
 
-  &:hover {
+.submitButton {
+  margin-top: 0.25rem;
+  align-self: flex-start;
+  border: 0;
+  border-radius: 999px;
+  background: #1f4d3a;
+  color: #ffffff;
+  -webkit-text-fill-color: #ffffff;
+  font: inherit;
+  font-weight: 600;
+  padding: 0.85rem 1.4rem;
+  cursor: pointer;
+  opacity: 1;
+  transition: background 0.2s ease, transform 0.2s ease;
+
+  &:hover:not(:disabled) {
+    background: #16382b;
     transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+    opacity: 1;
   }
+
+  &:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+}
+
+.formNote {
+  margin: 0;
+  color: #5c564e;
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 @media (max-width: 1024px) {

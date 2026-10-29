@@ -7,31 +7,34 @@ import styles from "./SkillsSection.module.scss";
 
 const skillGroups = [
   {
-    title: "Frontend Frameworks",
+    title: "Frontend",
     skills: [
-      { name: "Angular", icon: "angular" },
-      { name: "React", icon: "react" },
+      { name: "React.js", icon: "react" },
       { name: "Next.js", icon: "nextjs" },
-      { name: "JavaScript", icon: "javascript" },
+      { name: "Angular", icon: "angular" },
       { name: "TypeScript", icon: "typescript" },
-    ],
-  },
-  {
-    title: "Design & Styling",
-    skills: [
-      { name: "HTML/CSS", icon: "html" },
+      { name: "JavaScript", icon: "javascript" },
+      { name: "Tailwind CSS", icon: "tailwindcss" },
       { name: "Bootstrap", icon: "bootstrap" },
-      { name: "Tailwind Css", icon: "css" },
-      { name: "Photoshop", icon: "photoshop" },
     ],
   },
   {
-    title: "Tools & Workflow",
+    title: "Backend",
     skills: [
-      { name: "Git", icon: "git" },
-      { name: "API Integration", icon: "javascript" },
-      { name: "Agile", icon: "javascript" },
-      { name: "Debugging", icon: "javascript" },
+      { name: "Django", icon: "django" },
+      { name: "FastAPI", icon: "fastapi" },
+      { name: "Python", icon: "python" },
+      { name: "REST APIs", icon: "globe" },
+    ],
+  },
+  {
+    title: "Data, CMS & AI",
+    skills: [
+      { name: "PostgreSQL", icon: "postgresql" },
+      { name: "Payload CMS", icon: "document" },
+      { name: "OpenAI API", icon: "openai" },
+      { name: "fal.ai", icon: "rocket" },
+      { name: "GitHub", icon: "github" },
     ],
   },
 ];
@@ -67,11 +70,11 @@ export const SkillsSection = () => {
     <section ref={sectionRef} className={styles.skillsSection} id="skills">
       <div className={styles.container}>
         <div className={`${styles.header} ${isVisible ? styles.visible : ""}`}>
-          <Heading variant="display-strong-l" className={styles.title}>
-            My Tech Stack
+          <Heading as="h2" variant="display-strong-l" className={styles.title}>
+            Technical Skills
           </Heading>
           <Text variant="body-default-l" onBackground="neutral-weak" className={styles.subtitle}>
-            Tools I use to build beautiful digital experiences.
+            The stack I use to ship full-stack products: interfaces, APIs, data, and AI features.
           </Text>
         </div>
 
